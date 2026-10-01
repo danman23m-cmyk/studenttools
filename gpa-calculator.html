@@ -1,21 +1,412 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GPA Calculator | StudentTools</title>
-<meta name="description" content="Estimate a GPA on a 4.0 scale from up to four course grades.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>GPA Calculator | 4.0 Scale, Credits & Cumulative GPA | StudentTools</title>
+
+<meta name="description" content="Free GPA calculator for a 4.0 scale. Add unlimited courses, letter grades, and credit hours to calculate your semester GPA and optional cumulative GPA instantly.">
+
+<link rel="canonical" href="https://danman23m-cmyk.github.io/studenttools/gpa-calculator.html">
+
+<meta property="og:title" content="GPA Calculator | StudentTools">
+<meta property="og:description" content="Calculate a credit-weighted GPA on a common 4.0 scale. Add courses, credits, and grades with no signup.">
+<meta property="og:type" content="website">
+
 <link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"GPA Calculator",
+  "url":"https://danman23m-cmyk.github.io/studenttools/gpa-calculator.html",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"Any",
+  "description":"Free GPA calculator for estimating a credit-weighted GPA on a common 4.0 scale.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
 </head>
+
 <body>
-<header><div class="container nav"><a class="logo" href="index.html">StudentTools</a>
-<nav class="navlinks"><a href="index.html">All Tools</a><a href="index.html#grades">Grades</a><a href="index.html#more">More</a></nav></div></header>
-<main class="page"><div class="container">
-<div class="tool"><h1>GPA Calculator</h1><p>Enter your course GPAs on a standard 4.0 scale.</p>
-<div class="form-grid"><div><label for="g1">Course 1 GPA</label><input id="g1" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="g2">Course 2 GPA</label><input id="g2" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="g3">Course 3 GPA</label><input id="g3" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="g4">Course 4 GPA</label><input id="g4" type="number" min="0" max="4" step=".01" placeholder="3.5"></div></div>
-<div class="actions"><button class="btn" onclick="gpa()">Calculate GPA</button></div><div id="result" class="result"></div></div>
-<section class="info"><h2>About this calculator</h2><p>Estimate a GPA on a 4.0 scale from up to four course grades.</p>
-<h3>Use it step by step</h3><p>Enter your values above and select <strong>Calculate</strong>. The result appears instantly in your browser. No account is required.</p>
-</section></div></main>
-<footer>StudentTools — Free student calculators and study utilities.</footer>
-<script src="script.js"></script><script></script>
-</body></html>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">StudentTools</a>
+
+    <nav class="navlinks">
+      <a href="index.html">All Tools</a>
+      <a href="index.html#grades">Grades</a>
+      <a href="index.html#more">More</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+<div class="container">
+
+  <div class="tool tool-wide">
+
+    <h1>GPA Calculator</h1>
+
+    <p>
+      Calculate your GPA on a common 4.0 scale using your course grades and credit hours.
+    </p>
+
+    <div class="calculator-toolbar">
+
+      <button class="btn secondary" type="button" onclick="addCourse()">
+        + Add Course
+      </button>
+
+      <button class="text-btn" type="button" onclick="resetGpa()">
+        Reset
+      </button>
+
+    </div>
+
+    <div class="course-table-wrap">
+
+      <table class="course-table">
+
+        <thead>
+          <tr>
+            <th scope="col">Course</th>
+            <th scope="col">Letter Grade</th>
+            <th scope="col">Credits</th>
+            <th scope="col" aria-label="Remove course"></th>
+          </tr>
+        </thead>
+
+        <tbody id="courseRows"></tbody>
+
+      </table>
+
+    </div>
+
+    <div class="actions">
+
+      <button class="btn" type="button" onclick="gpa()">
+        Calculate GPA
+      </button>
+
+    </div>
+
+    <div id="result" class="result"></div>
+
+
+    <div class="cumulative-box">
+
+      <h2>Optional: Calculate cumulative GPA</h2>
+
+      <p class="muted">
+        Already have a GPA? Enter your previous GPA and completed credits to combine it with the courses above.
+      </p>
+
+      <div class="form-grid">
+
+        <div>
+          <label for="previousGpa">
+            Previous cumulative GPA
+          </label>
+
+          <input
+            id="previousGpa"
+            type="number"
+            min="0"
+            max="4"
+            step="0.01"
+            placeholder="3.25">
+        </div>
+
+
+        <div>
+
+          <label for="previousCredits">
+            Previous completed credits
+          </label>
+
+          <input
+            id="previousCredits"
+            type="number"
+            min="0"
+            step="0.5"
+            placeholder="45">
+
+        </div>
+
+      </div>
+
+      <button
+        class="btn secondary"
+        type="button"
+        onclick="calculateCumulativeGpa()">
+
+        Calculate Cumulative GPA
+
+      </button>
+
+      <div id="cumulativeResult" class="result"></div>
+
+    </div>
+
+  </div>
+
+
+  <section class="info">
+
+    <h2>How to use this GPA calculator</h2>
+
+    <ol class="steps">
+
+      <li>Add one row for each course.</li>
+
+      <li>Select the letter grade you expect or earned.</li>
+
+      <li>Enter the course's credit hours.</li>
+
+      <li>Select <strong>Calculate GPA</strong> to see your credit-weighted GPA.</li>
+
+    </ol>
+
+
+    <h2>How is GPA calculated?</h2>
+
+    <p>
+      A GPA is calculated by converting each letter grade to grade points,
+      multiplying those points by the course credits, adding the quality
+      points, and dividing by the total credits.
+    </p>
+
+    <div class="formula">
+
+      <strong>GPA = Total Quality Points ÷ Total Credits</strong>
+
+      <br>
+
+      <span>
+        Quality points = Grade points × Credit hours
+      </span>
+
+    </div>
+
+
+    <h2>GPA calculation example</h2>
+
+    <p>
+      Suppose you take three courses: an
+      <strong>A in 3 credits</strong>,
+      a <strong>B+ in 3 credits</strong>,
+      and an <strong>A- in 4 credits</strong>.
+      Using the scale shown below, the calculation is:
+    </p>
+
+    <p class="example-math">
+      (4.0 × 3 + 3.3 × 3 + 3.7 × 4) ÷ 10 =
+      <strong>3.67 GPA</strong>
+    </p>
+
+
+    <h2>Common 4.0 GPA scale</h2>
+
+    <p class="muted">
+      This is a common U.S. reference scale. Your school may use different
+      grade-point values, A+ rules, rounding, or plus/minus policies, so
+      check your institution's official grading policy for an official GPA.
+    </p>
+
+    <div class="scale-table-wrap">
+
+      <table class="scale-table">
+
+        <thead>
+          <tr>
+            <th>Letter</th>
+            <th>Grade points</th>
+            <th>Letter</th>
+            <th>Grade points</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>A+</td>
+            <td>4.0</td>
+            <td>C+</td>
+            <td>2.3</td>
+          </tr>
+
+          <tr>
+            <td>A</td>
+            <td>4.0</td>
+            <td>C</td>
+            <td>2.0</td>
+          </tr>
+
+          <tr>
+            <td>A-</td>
+            <td>3.7</td>
+            <td>C-</td>
+            <td>1.7</td>
+          </tr>
+
+          <tr>
+            <td>B+</td>
+            <td>3.3</td>
+            <td>D+</td>
+            <td>1.3</td>
+          </tr>
+
+          <tr>
+            <td>B</td>
+            <td>3.0</td>
+            <td>D</td>
+            <td>1.0</td>
+          </tr>
+
+          <tr>
+            <td>B-</td>
+            <td>2.7</td>
+            <td>D-</td>
+            <td>0.7</td>
+          </tr>
+
+          <tr>
+            <td>F</td>
+            <td>0.0</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <h2>Credit-weighted vs. simple GPA average</h2>
+
+    <p>
+      This calculator weights courses by credit hours. A 4-credit course
+      has twice the influence of a 2-credit course. Simply averaging the
+      GPA values of each course can give a different result when courses
+      have different credit hours.
+    </p>
+
+
+    <h2>Is this an official GPA?</h2>
+
+    <p>
+      No. This tool provides an estimate based on the displayed 4.0
+      reference scale. Colleges and universities can use their own rules
+      for plus/minus grades, A+ values, repeated courses, pass/fail courses,
+      exclusions, weighting, and rounding. Use your transcript or school's
+      official GPA calculation when you need an official number.
+    </p>
+
+
+    <h2>Frequently asked questions</h2>
+
+    <details>
+      <summary>What is a GPA?</summary>
+
+      <p>
+        GPA stands for grade point average. It summarizes course performance
+        as a number on a grading scale such as 4.0.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>How many courses can I add?</summary>
+
+      <p>
+        You can add as many course rows as you need. Empty rows are ignored
+        when the calculator runs.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>Does this GPA calculator use credits?</summary>
+
+      <p>
+        Yes. Course grade points are weighted by the credit hours you enter,
+        which is useful for estimating a college-style semester GPA.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>Can I calculate cumulative GPA?</summary>
+
+      <p>
+        Yes. Enter your previous cumulative GPA and previous completed
+        credits in the optional section, then add the new courses.
+        The calculator combines the previous quality points with the new
+        course quality points.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>Why might my school's GPA be different?</summary>
+
+      <p>
+        Schools can use different grade-point scales and policies.
+        For example, an A+ may have a different value, some schools omit
+        plus/minus grades, and repeated or pass/fail courses may be treated
+        differently.
+      </p>
+    </details>
+
+
+    <h2>Related student calculators</h2>
+
+    <div class="related-links">
+
+      <a href="weighted-gpa-calculator.html">
+        Weighted GPA Calculator
+      </a>
+
+      <a href="grade-calculator.html">
+        Grade Calculator
+      </a>
+
+      <a href="final-grade-calculator.html">
+        Final Grade Calculator
+      </a>
+
+      <a href="what-grade-do-i-need.html">
+        What Grade Do I Need?
+      </a>
+
+    </div>
+
+  </section>
+
+</div>
+</main>
+
+
+<footer>
+  StudentTools — Free student calculators and study utilities.
+</footer>
+
+
+<script src="script.js"></script>
+
+<script>
+  initGpaCalculator();
+</script>
+
+</body>
+</html>
