@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPA Calculator | StudentTools</title>
+<meta name="description" content="Estimate a GPA on a 4.0 scale from up to four course grades.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="container nav"><a class="logo" href="index.html">StudentTools</a>
+<nav class="navlinks"><a href="index.html">All Tools</a><a href="index.html#grades">Grades</a><a href="index.html#more">More</a></nav></div></header>
+<main class="page"><div class="container">
+<div class="tool"><h1>GPA Calculator</h1><p>Enter your course GPAs on a standard 4.0 scale.</p>
+<div class="form-grid"><div><label for="g1">Course 1 GPA</label><input id="g1" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="g2">Course 2 GPA</label><input id="g2" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="g3">Course 3 GPA</label><input id="g3" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="g4">Course 4 GPA</label><input id="g4" type="number" min="0" max="4" step=".01" placeholder="3.5"></div></div>
+<div class="actions"><button class="btn" onclick="gpa()">Calculate GPA</button></div><div id="result" class="result"></div></div>
+<section class="info"><h2>About this calculator</h2><p>Estimate a GPA on a 4.0 scale from up to four course grades.</p>
+<h3>Use it step by step</h3><p>Enter your values above and select <strong>Calculate</strong>. The result appears instantly in your browser. No account is required.</p>
+</section></div></main>
+<footer>StudentTools — Free student calculators and study utilities.</footer>
+<script src="script.js"></script><script></script>
+</body></html>

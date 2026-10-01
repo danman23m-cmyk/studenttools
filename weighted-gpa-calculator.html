@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weighted GPA Calculator | StudentTools</title>
+<meta name="description" content="Calculate a credit-weighted GPA using GPA values and credit hours.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="container nav"><a class="logo" href="index.html">StudentTools</a>
+<nav class="navlinks"><a href="index.html">All Tools</a><a href="index.html#grades">Grades</a><a href="index.html#more">More</a></nav></div></header>
+<main class="page"><div class="container">
+<div class="tool"><h1>Weighted GPA Calculator</h1><p>Calculate GPA when courses have different credit hours.</p>
+<div class="form-grid"><div><label for="wg1">Course 1 GPA</label><input id="wg1" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="c1">Course 1 credits</label><input id="c1" type="number" min="0.5" step=".5" placeholder="3"></div><div><label for="wg2">Course 2 GPA</label><input id="wg2" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="c2">Course 2 credits</label><input id="c2" type="number" min="0.5" step=".5" placeholder="3"></div><div><label for="wg3">Course 3 GPA</label><input id="wg3" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="c3">Course 3 credits</label><input id="c3" type="number" min="0.5" step=".5" placeholder="3"></div></div>
+<div class="actions"><button class="btn" onclick="weightedGpa()">Calculate Weighted GPA</button></div><div id="result" class="result"></div></div>
+<section class="info"><h2>About this calculator</h2><p>Calculate a credit-weighted GPA using GPA values and credit hours.</p>
+<h3>Use it step by step</h3><p>Enter your values above and select <strong>Calculate</strong>. The result appears instantly in your browser. No account is required.</p>
+</section></div></main>
+<footer>StudentTools — Free student calculators and study utilities.</footer>
+<script src="script.js"></script><script></script>
+</body></html>
