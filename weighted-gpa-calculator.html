@@ -1,21 +1,277 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Weighted GPA Calculator | StudentTools</title>
-<meta name="description" content="Calculate a credit-weighted GPA using GPA values and credit hours.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Weighted GPA Calculator – Calculate GPA by Credit Hours | StudentTools</title>
+
+<meta name="description" content="Use this free weighted GPA calculator to calculate your GPA using course GPA values and credit hours. Get your credit-weighted GPA instantly.">
+
+<link rel="canonical" href="https://danman23m-cmyk.github.io/studenttools/weighted-gpa-calculator.html">
+
+<meta property="og:title" content="Weighted GPA Calculator – StudentTools">
+<meta property="og:description" content="Calculate a credit-weighted GPA using course GPA values and credit hours. Free and easy to use.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://danman23m-cmyk.github.io/studenttools/weighted-gpa-calculator.html">
+
 <link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Weighted GPA Calculator",
+  "url":"https://danman23m-cmyk.github.io/studenttools/weighted-gpa-calculator.html",
+  "description":"Free weighted GPA calculator using course GPA values and credit hours.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a weighted GPA?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A weighted GPA accounts for the number of credit hours each course is worth. Courses with more credits have a larger effect on the overall GPA."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate a weighted GPA?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Multiply each course GPA by its credit hours, add the results together, and divide by the total number of credit hours."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is the weighted GPA formula?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Weighted GPA = sum of (course GPA × course credits) ÷ total course credits."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Why do credit hours affect GPA?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Credit hours represent the amount of coursework associated with a class. A course with more credits contributes more to a credit-weighted GPA than a course with fewer credits."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use this calculator for college courses?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. You can use it to estimate a college GPA when you know each course GPA value and the number of credit hours for each course."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
+
 <body>
-<header><div class="container nav"><a class="logo" href="index.html">StudentTools</a>
-<nav class="navlinks"><a href="index.html">All Tools</a><a href="index.html#grades">Grades</a><a href="index.html#more">More</a></nav></div></header>
-<main class="page"><div class="container">
-<div class="tool"><h1>Weighted GPA Calculator</h1><p>Calculate GPA when courses have different credit hours.</p>
-<div class="form-grid"><div><label for="wg1">Course 1 GPA</label><input id="wg1" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="c1">Course 1 credits</label><input id="c1" type="number" min="0.5" step=".5" placeholder="3"></div><div><label for="wg2">Course 2 GPA</label><input id="wg2" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="c2">Course 2 credits</label><input id="c2" type="number" min="0.5" step=".5" placeholder="3"></div><div><label for="wg3">Course 3 GPA</label><input id="wg3" type="number" min="0" max="4" step=".01" placeholder="3.5"></div><div><label for="c3">Course 3 credits</label><input id="c3" type="number" min="0.5" step=".5" placeholder="3"></div></div>
-<div class="actions"><button class="btn" onclick="weightedGpa()">Calculate Weighted GPA</button></div><div id="result" class="result"></div></div>
-<section class="info"><h2>About this calculator</h2><p>Calculate a credit-weighted GPA using GPA values and credit hours.</p>
-<h3>Use it step by step</h3><p>Enter your values above and select <strong>Calculate</strong>. The result appears instantly in your browser. No account is required.</p>
-</section></div></main>
-<footer>StudentTools — Free student calculators and study utilities.</footer>
-<script src="script.js"></script><script></script>
-</body></html>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">StudentTools</a>
+
+    <nav class="navlinks">
+      <a href="index.html">All Tools</a>
+      <a href="index.html#grades">Grades</a>
+      <a href="index.html#more">More</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="tool">
+
+      <h1>Weighted GPA Calculator</h1>
+
+      <p>Calculate your GPA when courses have different credit hours.</p>
+
+      <div class="form-grid">
+
+        <div>
+          <label for="wg1">Course 1 GPA</label>
+          <input id="wg1" type="number" min="0" max="4" step=".01" placeholder="3.5">
+        </div>
+
+        <div>
+          <label for="c1">Course 1 credits</label>
+          <input id="c1" type="number" min="0.5" step=".5" placeholder="3">
+        </div>
+
+        <div>
+          <label for="wg2">Course 2 GPA</label>
+          <input id="wg2" type="number" min="0" max="4" step=".01" placeholder="3.5">
+        </div>
+
+        <div>
+          <label for="c2">Course 2 credits</label>
+          <input id="c2" type="number" min="0.5" step=".5" placeholder="3">
+        </div>
+
+        <div>
+          <label for="wg3">Course 3 GPA</label>
+          <input id="wg3" type="number" min="0" max="4" step=".01" placeholder="3.5">
+        </div>
+
+        <div>
+          <label for="c3">Course 3 credits</label>
+          <input id="c3" type="number" min="0.5" step=".5" placeholder="3">
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="weightedGpa()">Calculate Weighted GPA</button>
+      </div>
+
+      <div id="result" class="result"></div>
+
+    </div>
+
+    <section class="info">
+
+      <h2>How to Calculate a Weighted GPA</h2>
+
+      <p>
+        A credit-weighted GPA takes both your course GPA and the number
+        of credit hours for each course into account.
+      </p>
+
+      <h3>Weighted GPA Formula</h3>
+
+      <p>
+        <strong>
+          Weighted GPA = Σ (Course GPA × Course Credits) ÷ Total Credits
+        </strong>
+      </p>
+
+      <h3>Example</h3>
+
+      <p>
+        Suppose you have three courses:
+      </p>
+
+      <p>
+        Course 1: 4.0 GPA × 3 credits = 12.0 quality points
+      </p>
+
+      <p>
+        Course 2: 3.0 GPA × 3 credits = 9.0 quality points
+      </p>
+
+      <p>
+        Course 3: 3.7 GPA × 4 credits = 14.8 quality points
+      </p>
+
+      <p>
+        Total quality points = 35.8
+      </p>
+
+      <p>
+        Total credits = 10
+      </p>
+
+      <p>
+        <strong>35.8 ÷ 10 = 3.58 weighted GPA</strong>
+      </p>
+
+      <h3>How to Use This Calculator</h3>
+
+      <p>
+        Enter the GPA value and credit hours for each course. Then select
+        <strong>Calculate Weighted GPA</strong> to calculate your
+        credit-weighted GPA.
+      </p>
+
+      <p>
+        Courses with more credit hours have a larger effect on the
+        final GPA than courses with fewer credit hours.
+      </p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>What is a weighted GPA?</h3>
+
+      <p>
+        A weighted GPA accounts for the number of credit hours associated
+        with each course. A higher-credit course has a larger effect on
+        the overall GPA.
+      </p>
+
+      <h3>How do you calculate a weighted GPA?</h3>
+
+      <p>
+        Multiply each course GPA by its credit hours, add those values
+        together, and divide by the total number of credit hours.
+      </p>
+
+      <h3>Why do credit hours affect GPA?</h3>
+
+      <p>
+        Credit hours indicate how much coursework a class represents.
+        Because of this, a course with more credits contributes more to
+        a credit-weighted GPA.
+      </p>
+
+      <h3>Can I use this for college courses?</h3>
+
+      <p>
+        Yes. Enter the GPA value and credit hours for each college course
+        to estimate your credit-weighted GPA.
+      </p>
+
+      <h3>What if my school's GPA scale is different?</h3>
+
+      <p>
+        This calculator uses the GPA values you enter. Schools may use
+        different grading scales or policies, so check your school's
+        official GPA rules if you need an exact institutional calculation.
+      </p>
+
+      <h2>Related Calculators</h2>
+
+      <p>
+        You can also use the
+        <a href="gpa-calculator.html">GPA Calculator</a>,
+        <a href="final-grade-calculator.html">Final Grade Calculator</a>,
+        <a href="grade-calculator.html">Grade Calculator</a>,
+        or
+        <a href="exam-grade-calculator.html">Exam Grade Calculator</a>.
+      </p>
+
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  StudentTools — Free student calculators and study utilities.
+</footer>
+
+<script src="script.js"></script>
+<script></script>
+
+</body>
+</html>
