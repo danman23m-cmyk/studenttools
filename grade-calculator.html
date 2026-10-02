@@ -1,22 +1,228 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Grade Calculator | StudentTools</title>
-<meta name="description" content="Calculate your grade percentage from points earned and total points.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Grade Calculator – Calculate Your Grade Percentage | StudentTools</title>
+
+<meta name="description" content="Use this free grade calculator to calculate your percentage from points earned and total points. Get your grade instantly with no sign-up required.">
+
+<link rel="canonical" href="https://danman23m-cmyk.github.io/studenttools/grade-calculator.html">
+
+<meta property="og:title" content="Grade Calculator – StudentTools">
+<meta property="og:description" content="Calculate your grade percentage from points earned and total points. Free, fast, and easy to use.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://danman23m-cmyk.github.io/studenttools/grade-calculator.html">
+
 <link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Grade Calculator",
+  "url":"https://danman23m-cmyk.github.io/studenttools/grade-calculator.html",
+  "description":"Free grade calculator for calculating a percentage from points earned and total points.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I calculate my grade percentage?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Divide the points you earned by the total possible points, then multiply by 100. For example, 85 points out of 100 points is an 85% grade."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is the formula for calculating a grade?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The grade percentage formula is: (points earned ÷ total points) × 100."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I calculate grades with different point totals?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. Enter the number of points you earned and the total number of possible points. The calculator works with different point totals."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What if I earned more points than the total?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The calculator can calculate percentages above 100%. This may happen when extra credit points are included."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does this calculator work for exams and assignments?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. You can use it for exams, quizzes, assignments, homework, projects, or any other work graded using points."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
+
 <body>
-<header><div class="container nav"><a class="logo" href="index.html">StudentTools</a>
-<nav class="navlinks"><a href="index.html">All Tools</a><a href="index.html#grades">Grades</a><a href="index.html#more">More</a></nav></div></header>
-<main class="page"><div class="container">
-<div class="tool"><h1>Grade Calculator</h1><p>Find your percentage from points earned.</p>
-<div class="form-grid"><div><label for="earned">Points earned</label><input id="earned" type="number" step="any" placeholder="85"></div>
-<div><label for="total">Total points</label><input id="total" type="number" step="any" placeholder="100"></div></div>
-<div class="actions"><button class="btn" onclick="grade()">Calculate Grade</button></div><div id="result" class="result"></div></div>
-<section class="info"><h2>About this calculator</h2><p>Calculate your grade percentage from points earned and total points.</p>
-<h3>Use it step by step</h3><p>Enter your values above and select <strong>Calculate</strong>. The result appears instantly in your browser. No account is required.</p>
-</section></div></main>
-<footer>StudentTools — Free student calculators and study utilities.</footer>
-<script src="script.js"></script><script></script>
-</body></html>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">StudentTools</a>
+
+    <nav class="navlinks">
+      <a href="index.html">All Tools</a>
+      <a href="index.html#grades">Grades</a>
+      <a href="index.html#more">More</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="tool">
+
+      <h1>Grade Calculator</h1>
+
+      <p>Calculate your grade percentage from points earned and total points.</p>
+
+      <div class="form-grid">
+
+        <div>
+          <label for="earned">Points earned</label>
+          <input id="earned" type="number" step="any" placeholder="85">
+        </div>
+
+        <div>
+          <label for="total">Total points</label>
+          <input id="total" type="number" step="any" placeholder="100">
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="grade()">Calculate Grade</button>
+      </div>
+
+      <div id="result" class="result"></div>
+
+    </div>
+
+    <section class="info">
+
+      <h2>How to Calculate Your Grade</h2>
+
+      <p>
+        To calculate your grade percentage, divide the points you earned
+        by the total possible points and multiply by 100.
+      </p>
+
+      <h3>Grade Percentage Formula</h3>
+
+      <p>
+        <strong>Grade Percentage = (Points Earned ÷ Total Points) × 100</strong>
+      </p>
+
+      <h3>Example</h3>
+
+      <p>
+        If you earned 85 points out of 100 possible points:
+      </p>
+
+      <p>
+        <strong>(85 ÷ 100) × 100 = 85%</strong>
+      </p>
+
+      <p>
+        Your grade would be <strong>85%</strong>.
+      </p>
+
+      <h3>How to Use This Calculator</h3>
+
+      <p>
+        Enter the number of points you earned and the total number of
+        possible points. Select <strong>Calculate Grade</strong> to see
+        your percentage instantly.
+      </p>
+
+      <p>
+        You can use this calculator for exams, quizzes, homework,
+        assignments, projects, and other point-based grades.
+      </p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How do I calculate my grade percentage?</h3>
+
+      <p>
+        Divide your points earned by the total possible points and
+        multiply by 100. For example, 85 out of 100 points equals 85%.
+      </p>
+
+      <h3>What is the formula for calculating a grade?</h3>
+
+      <p>
+        The formula is:
+        <strong>(points earned ÷ total points) × 100</strong>.
+      </p>
+
+      <h3>Can I use different point totals?</h3>
+
+      <p>
+        Yes. You can enter any earned-point and total-point values,
+        such as 42 out of 50 or 178 out of 200.
+      </p>
+
+      <h3>What if I earned more than the total points?</h3>
+
+      <p>
+        A percentage above 100% can occur when extra credit is included.
+      </p>
+
+      <h3>What other calculators can I use?</h3>
+
+      <p>
+        Try the
+        <a href="final-grade-calculator.html">Final Grade Calculator</a>,
+        <a href="gpa-calculator.html">GPA Calculator</a>,
+        <a href="weighted-gpa-calculator.html">Weighted GPA Calculator</a>,
+        or
+        <a href="exam-grade-calculator.html">Exam Grade Calculator</a>.
+      </p>
+
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  StudentTools — Free student calculators and study utilities.
+</footer>
+
+<script src="script.js"></script>
+<script></script>
+
+</body>
+</html>
