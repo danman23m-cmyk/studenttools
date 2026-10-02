@@ -1,23 +1,405 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Final Grade Calculator | StudentTools</title>
-<meta name="description" content="Find the score you need on remaining coursework to reach a target class grade.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Final Grade Calculator – What Do I Need on My Final? | StudentTools</title>
+
+<meta name="description" content="Use this final grade calculator to find the score you need on a final exam, assignment, or remaining coursework to reach your target class grade.">
+
+<link rel="canonical" href="https://danman23m-cmyk.github.io/studenttools/final-grade-calculator.html">
+
+<meta property="og:title" content="Final Grade Calculator | StudentTools">
+<meta property="og:description" content="Find the score you need on your final exam or remaining coursework to reach your target grade.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://danman23m-cmyk.github.io/studenttools/final-grade-calculator.html">
+
 <link rel="stylesheet" href="style.css">
+
+<!-- WebApplication structured data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Final Grade Calculator",
+  "url":"https://danman23m-cmyk.github.io/studenttools/final-grade-calculator.html",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"Any",
+  "description":"Free final grade calculator for finding the score needed on remaining coursework to reach a target class grade.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<!-- FAQ structured data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I calculate the grade I need on my final?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Multiply your current grade by the percentage of the course already completed, subtract that result from your desired final grade, and divide by the percentage remaining."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What if the calculator says I need more than 100%?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"If the required score is above 100%, the target final grade is not mathematically reachable with the remaining coursework under the values entered."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use this calculator for a final exam?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. Enter your current grade, the percentage of your course grade represented by the final exam, and your desired final course grade."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use this for an assignment instead of a final exam?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The calculator can be used for any remaining coursework as long as you know its percentage of the total course grade."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What happens if I enter 100% as the remaining work?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"If 100% of the course remains, the required score is the same as the desired final grade."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
+
 <body>
-<header><div class="container nav"><a class="logo" href="index.html">StudentTools</a>
-<nav class="navlinks"><a href="index.html">All Tools</a><a href="index.html#grades">Grades</a><a href="index.html#more">More</a></nav></div></header>
-<main class="page"><div class="container">
-<div class="tool"><h1>Final Grade Calculator</h1><p>Find the score needed on a remaining assignment, exam, or final.</p>
-<div class="form-grid"><div><label for="current">Current grade (%)</label><input id="current" type="number" step="any" placeholder="82"></div>
-<div><label for="weight">Remaining work weight (%)</label><input id="weight" type="number" step="any" placeholder="25"></div>
-<div><label for="desired">Desired final grade (%)</label><input id="desired" type="number" step="any" placeholder="90"></div></div>
-<div class="actions"><button class="btn" onclick="finalGrade()">Calculate Needed Score</button></div><div id="result" class="result"></div></div>
-<section class="info"><h2>About this calculator</h2><p>Find the score you need on remaining coursework to reach a target class grade.</p>
-<h3>Use it step by step</h3><p>Enter your values above and select <strong>Calculate</strong>. The result appears instantly in your browser. No account is required.</p>
-</section></div></main>
-<footer>StudentTools — Free student calculators and study utilities.</footer>
-<script src="script.js"></script><script></script>
-</body></html>
+
+<header>
+  <div class="container nav">
+
+    <a class="logo" href="index.html">
+      StudentTools
+    </a>
+
+    <nav class="navlinks">
+      <a href="index.html">All Tools</a>
+      <a href="index.html#grades">Grades</a>
+      <a href="index.html#more">More</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main class="page">
+
+<div class="container">
+
+  <div class="tool">
+
+    <h1>Final Grade Calculator</h1>
+
+    <p>
+      Find the score you need on a final exam, assignment, or other
+      remaining coursework to reach your target class grade.
+    </p>
+
+
+    <div class="form-grid">
+
+      <div>
+
+        <label for="current">
+          Current grade (%)
+        </label>
+
+        <input
+          id="current"
+          type="number"
+          step="any"
+          placeholder="82">
+
+      </div>
+
+
+      <div>
+
+        <label for="weight">
+          Remaining work weight (%)
+        </label>
+
+        <input
+          id="weight"
+          type="number"
+          step="any"
+          placeholder="25">
+
+      </div>
+
+
+      <div>
+
+        <label for="desired">
+          Desired final grade (%)
+        </label>
+
+        <input
+          id="desired"
+          type="number"
+          step="any"
+          placeholder="90">
+
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="btn"
+        type="button"
+        onclick="finalGrade()">
+
+        Calculate Needed Score
+
+      </button>
+
+    </div>
+
+
+    <div id="result" class="result"></div>
+
+  </div>
+
+
+  <section class="info">
+
+    <h2>How to use this final grade calculator</h2>
+
+    <ol class="steps">
+
+      <li>Enter your current class grade.</li>
+
+      <li>Enter how much the remaining exam, assignment, or coursework is worth.</li>
+
+      <li>Enter the final grade you want to achieve.</li>
+
+      <li>Select <strong>Calculate Needed Score</strong>.</li>
+
+    </ol>
+
+
+    <h2>What grade do I need on my final?</h2>
+
+    <p>
+      This calculator determines the score you need on your remaining
+      coursework to reach a desired overall class grade. It works by
+      weighting your current grade by the portion of the course already
+      completed and then determining what score is required on the
+      remaining work.
+    </p>
+
+
+    <h2>Final grade formula</h2>
+
+    <div class="formula">
+
+      <strong>
+        Needed Score =
+        (Desired Grade − Current Grade × Completed Weight)
+        ÷ Remaining Weight
+      </strong>
+
+      <br>
+
+      <span>
+        Completed Weight = 1 − Remaining Weight
+      </span>
+
+    </div>
+
+
+    <h2>Final grade calculation example</h2>
+
+    <p>
+      Suppose your current grade is <strong>82%</strong>, your final exam
+      is worth <strong>25%</strong> of your course grade, and you want to
+      finish with a <strong>90%</strong>.
+    </p>
+
+    <p class="example-math">
+      (90 − 82 × 0.75) ÷ 0.25 =
+      <strong>114%</strong>
+    </p>
+
+    <p>
+      In this example, you would need a 114% on the final, which means
+      a 90% overall course grade is not mathematically reachable from
+      the values entered.
+    </p>
+
+
+    <h2>What if I need more than 100%?</h2>
+
+    <p>
+      If the calculator says you need more than 100%, your target final
+      grade cannot be reached with the remaining coursework under the
+      numbers you entered. You can still use the calculator to determine
+      the highest possible final course grade.
+    </p>
+
+
+    <h2>What if I need less than 0%?</h2>
+
+    <p>
+      If the required score is below 0%, you have already earned enough
+      points to reach your target based on the values entered. You should
+      still complete any required coursework according to your course
+      policies.
+    </p>
+
+
+    <h2>Final exam vs. remaining coursework</h2>
+
+    <p>
+      Despite the name, this calculator does not only work for final
+      exams. You can use it for a final project, assignment, presentation,
+      test, or any other remaining coursework when you know its percentage
+      of the total course grade.
+    </p>
+
+
+    <h2>Frequently asked questions</h2>
+
+
+    <details>
+
+      <summary>
+        How do I calculate the grade I need on my final?
+      </summary>
+
+      <p>
+        Multiply your current grade by the percentage of the course
+        already completed, subtract that result from your desired final
+        grade, and divide by the percentage remaining.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        What if the calculator says I need more than 100%?
+      </summary>
+
+      <p>
+        If the required score is above 100%, the target final grade is
+        not mathematically reachable with the remaining coursework
+        under the values entered.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Can I use this calculator for a final exam?
+      </summary>
+
+      <p>
+        Yes. Enter your current grade, the percentage of your course
+        grade represented by the final exam, and your desired final
+        course grade.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Can I use this for an assignment instead of a final exam?
+      </summary>
+
+      <p>
+        Yes. The calculator can be used for any remaining coursework
+        as long as you know its percentage of the total course grade.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        What happens if I enter 100% as the remaining work?
+      </summary>
+
+      <p>
+        If 100% of the course remains, the required score is the same
+        as the desired final grade.
+      </p>
+
+    </details>
+
+
+    <h2>Related student calculators</h2>
+
+    <div class="related-links">
+
+      <a href="grade-calculator.html">
+        Grade Calculator
+      </a>
+
+      <a href="gpa-calculator.html">
+        GPA Calculator
+      </a>
+
+      <a href="weighted-gpa-calculator.html">
+        Weighted GPA Calculator
+      </a>
+
+      <a href="what-grade-do-i-need.html">
+        What Grade Do I Need?
+      </a>
+
+      <a href="exam-grade-calculator.html">
+        Exam Grade Calculator
+      </a>
+
+    </div>
+
+  </section>
+
+</div>
+
+</main>
+
+
+<footer>
+  StudentTools — Free student calculators and study utilities.
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
